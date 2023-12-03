@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
         self.label_subheading.setText("Made by Aakrisht Tiwary and Atharva Agarwal")
 
         self.label_note = QtWidgets.QLabel(self.centralwidget)
-        self.label_note.setGeometry(QtCore.QRect(20, 240, 351, 31))
+        self.label_note.setGeometry(QtCore.QRect(20, 270, 351, 31))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.label_note.setFont(font)
@@ -77,6 +77,11 @@ class Ui_MainWindow(object):
         self.plainTextEdit.setGeometry(QtCore.QRect(300, 60, 281, 222))
         self.plainTextEdit.setObjectName("plainTextEdit")
 
+        self.pushButton_delete = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_delete.setGeometry(QtCore.QRect(70, 240, 151, 31))
+        self.pushButton_delete.setObjectName("pushButton_delete")
+        self.pushButton_delete.setText("Delete Employee")
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -100,6 +105,7 @@ class EmployeeDatabaseApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.pushButton_add.clicked.connect(self.add_employee)
         self.pushButton_search.clicked.connect(self.search_employee)
+        self.pushButton_delete.clicked.connect(self.delete_employee)
 
     def add_employee(self):
         name = self.lineEdit_name.text()
@@ -124,6 +130,15 @@ class EmployeeDatabaseApp(QtWidgets.QMainWindow, Ui_MainWindow):
                 f"Employee found: ID: {id_number}, Name: {employee['name']}, Department: {employee['department']}")
         else:
             self.plainTextEdit.appendPlainText(f"Employee with ID: {id_number} not found")
+
+    def delete_employee(self):
+        id_number = self.lineEdit_id.text()
+        if id_number in self.employee_data:
+            del self.employee_data[id_number]
+            self.plainTextEdit.appendPlainText(f"Employee with ID: {id_number} deleted.")
+        else:
+            self.plainTextEdit.appendPlainText(f"Employee with ID: {id_number} not found.")
+        self.lineEdit_id.clear()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
