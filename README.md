@@ -1,7 +1,7 @@
 # employee-database-gui
 Manage employee information
 
-##Python Lab EL Project
+## Python Lab EL Project
 
 # Employee Database Application
 
