@@ -1,6 +1,8 @@
 # employee-database-gui
 Manage employee information
 
+##Python Lab EL Project
+
 # Employee Database Application
 
 This is a simple Employee Database application built using PyQt5, a set of Python bindings for Qt libraries. The application allows users to manage employee information, including adding new employees, searching for employees by ID, and displaying all employees in the database.
