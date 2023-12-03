@@ -24,7 +24,7 @@ This is a simple Employee Database application built using PyQt5, a set of Pytho
 2. Run the Application: Execute the `employee_database.py` script to run the Employee Database application.
 
     ```
-    python employee_database.py
+    python EmployeeDatabase.py
     ```
 
 3. Use the Application: Follow the on-screen instructions to add, search, and display employees.
